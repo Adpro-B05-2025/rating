@@ -5,6 +5,7 @@ import id.ac.ui.cs.advprog.rating.repository.RatingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -20,7 +21,29 @@ public class RatingServiceImpl implements RatingService {
 
     @Override
     public Rating create(Rating rating) {
+        validateRating(rating);
+        rating.setCreatedAt(LocalDateTime.now());
         return ratingRepository.save(rating);
+    }
+
+    @Override
+    public Rating update(UUID id, Rating updatedRating) {
+        Rating existingRating = ratingRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Rating not found with id: " + id));
+
+        validateRating(updatedRating);
+        existingRating.setScore(updatedRating.getScore());
+        existingRating.setComment(updatedRating.getComment());
+
+        return ratingRepository.save(existingRating);
+    }
+
+    @Override
+    public void deleteById(UUID id) {
+        if (!ratingRepository.existsById(id)) {
+            throw new IllegalArgumentException("Rating not found with id: " + id);
+        }
+        ratingRepository.deleteById(id);
     }
 
     @Override
@@ -49,8 +72,14 @@ public class RatingServiceImpl implements RatingService {
         return ratingRepository.findAllByConsultationId(consultationId);
     }
 
-    @Override
-    public void deleteById(UUID id) {
-        ratingRepository.deleteById(id);
+    private void validateRating(Rating rating) {
+        if (rating.getScore() == null || rating.getScore() < 1 || rating.getScore() > 5) {
+            throw new IllegalArgumentException("Rating score must be between 1 and 5");
+        }
+        if (rating.getDoctorId() == null || rating.getUserId() == null || rating.getConsultationId() == null) {
+            throw new IllegalArgumentException("Doctor ID, User ID, and Consultation ID must be provided");
+        }
     }
 }
+
+

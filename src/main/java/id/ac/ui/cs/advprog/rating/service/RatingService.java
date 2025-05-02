@@ -7,10 +7,11 @@ import java.util.UUID;
 
 public interface RatingService {
     Rating create(Rating rating);
+    Rating update(UUID id, Rating updatedRating);
     List<Rating> findAll();
+    void deleteById(UUID id);
     Rating findById(UUID id);
     List<Rating> findAllByDoctorId(UUID doctorId);
     List<Rating> findAllByUserId(UUID userId);
     List<Rating> findAllByConsultationId(UUID consultationId);
-    void deleteById(UUID id);
 }
