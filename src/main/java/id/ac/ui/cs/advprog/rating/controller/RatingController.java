@@ -13,7 +13,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/ratings")
+@RequestMapping("/api/rating")
 public class RatingController {
 
     private final RatingService ratingService;
