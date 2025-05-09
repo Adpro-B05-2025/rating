@@ -2,6 +2,7 @@ package id.ac.ui.cs.advprog.rating.service;
 
 import id.ac.ui.cs.advprog.rating.model.Rating;
 import id.ac.ui.cs.advprog.rating.repository.RatingRepository;
+import id.ac.ui.cs.advprog.rating.strategy.RatingValidationStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,15 +14,18 @@ import java.util.UUID;
 public class RatingServiceImpl implements RatingService {
 
     private final RatingRepository ratingRepository;
+    private final RatingValidationStrategy validationStrategy;
 
     @Autowired
-    public RatingServiceImpl(RatingRepository ratingRepository) {
+    public RatingServiceImpl(RatingRepository ratingRepository,
+                             RatingValidationStrategy validationStrategy) {
         this.ratingRepository = ratingRepository;
+        this.validationStrategy = validationStrategy;
     }
 
     @Override
     public Rating create(Rating rating) {
-        validateRating(rating);
+        validationStrategy.validate(rating);
         rating.setCreatedAt(LocalDateTime.now());
         return ratingRepository.save(rating);
     }
@@ -31,10 +35,9 @@ public class RatingServiceImpl implements RatingService {
         Rating existingRating = ratingRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Rating not found with id: " + id));
 
-        validateRating(updatedRating);
+        validationStrategy.validate(updatedRating);
         existingRating.setScore(updatedRating.getScore());
         existingRating.setComment(updatedRating.getComment());
-
         return ratingRepository.save(existingRating);
     }
 
@@ -70,15 +73,6 @@ public class RatingServiceImpl implements RatingService {
     @Override
     public List<Rating> findAllByConsultationId(UUID consultationId) {
         return ratingRepository.findAllByConsultationId(consultationId);
-    }
-
-    private void validateRating(Rating rating) {
-        if (rating.getScore() == null || rating.getScore() < 1 || rating.getScore() > 5) {
-            throw new IllegalArgumentException("Rating score must be between 1 and 5");
-        }
-        if (rating.getDoctorId() == null || rating.getUserId() == null || rating.getConsultationId() == null) {
-            throw new IllegalArgumentException("Doctor ID, User ID, and Consultation ID must be provided");
-        }
     }
 }
 
