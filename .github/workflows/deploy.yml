@@ -1,0 +1,19 @@
+name: Deploy Spring Boot to AWS
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build JAR
+        run: ./mvnw package
+      - name: Upload JAR to EC2
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ec2-user
+          key: ${{ secrets.AWS_SSH_KEY }}
+          source: "target/*.jar"
+          target: "/home/ec2-user/"
