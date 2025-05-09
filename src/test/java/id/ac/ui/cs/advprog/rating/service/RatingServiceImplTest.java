@@ -2,6 +2,7 @@ package id.ac.ui.cs.advprog.rating.service;
 
 import id.ac.ui.cs.advprog.rating.model.Rating;
 import id.ac.ui.cs.advprog.rating.repository.RatingRepository;
+import id.ac.ui.cs.advprog.rating.strategy.RatingValidationStrategy;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -18,13 +19,15 @@ import static org.mockito.Mockito.*;
 public class RatingServiceImplTest {
 
     private RatingRepository ratingRepository;
+    private RatingValidationStrategy validationStrategy;
     private RatingServiceImpl ratingService;
     private Rating rating;
 
     @BeforeEach
     void setUp() {
         ratingRepository = Mockito.mock(RatingRepository.class);
-        ratingService = new RatingServiceImpl(ratingRepository);
+        validationStrategy = Mockito.mock(RatingValidationStrategy.class);
+        ratingService = new RatingServiceImpl(ratingRepository, validationStrategy);
 
         rating = Rating.builder()
                 .id(UUID.randomUUID())
@@ -34,8 +37,9 @@ public class RatingServiceImplTest {
                 .score(4)
                 .comment("Dokternya informatif")
                 .build();
-        rating.setId(UUID.randomUUID());
+        rating.setCreatedAt(LocalDateTime.now());
     }
+
 
     @Test
     void testCreate() {
@@ -44,6 +48,7 @@ public class RatingServiceImplTest {
         assertThat(saved.getScore()).isEqualTo(4);
         assertThat(saved.getCreatedAt()).isNotNull();
         verify(ratingRepository, times(1)).save(saved);
+        verify(validationStrategy, times(1)).validate(rating);
     }
 
     @Test
@@ -66,9 +71,9 @@ public class RatingServiceImplTest {
 
         assertThat(result.getScore()).isEqualTo(5);
         assertThat(result.getComment()).contains("Sangat bagus");
+        verify(validationStrategy, times(1)).validate(updatedRating);
         verify(ratingRepository).save(any(Rating.class));
     }
-
 
     @Test
     void testUpdateRatingNotFound() {
@@ -78,6 +83,7 @@ public class RatingServiceImplTest {
         when(ratingRepository.findById(fakeId)).thenReturn(Optional.empty());
 
         assertThrows(IllegalArgumentException.class, () -> ratingService.update(fakeId, updated));
+        verify(validationStrategy, never()).validate(any());
     }
 
     @Test
