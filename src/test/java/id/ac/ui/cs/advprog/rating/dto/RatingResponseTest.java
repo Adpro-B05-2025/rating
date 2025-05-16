@@ -14,14 +14,12 @@ public class RatingResponseTest {
         UUID id = UUID.randomUUID();
         UUID consultationId = UUID.randomUUID();
         UUID doctorId = UUID.randomUUID();
-        UUID userId = UUID.randomUUID();
         LocalDateTime createdAt = LocalDateTime.now();
 
         RatingResponse response = RatingResponse.builder()
                 .id(id)
                 .consultationId(consultationId)
                 .doctorId(doctorId)
-                .userId(userId)
                 .score(4)
                 .comment("Baik")
                 .createdAt(createdAt)
@@ -30,7 +28,6 @@ public class RatingResponseTest {
         assertEquals(id, response.getId());
         assertEquals(consultationId, response.getConsultationId());
         assertEquals(doctorId, response.getDoctorId());
-        assertEquals(userId, response.getUserId());
         assertEquals(4, response.getScore());
         assertEquals("Baik", response.getComment());
         assertEquals(createdAt, response.getCreatedAt());

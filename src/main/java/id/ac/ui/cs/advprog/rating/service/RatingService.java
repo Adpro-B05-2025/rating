@@ -12,6 +12,5 @@ public interface RatingService {
     void deleteById(UUID id);
     Rating findById(UUID id);
     List<Rating> findAllByDoctorId(UUID doctorId);
-    List<Rating> findAllByUserId(UUID userId);
     List<Rating> findAllByConsultationId(UUID consultationId);
 }

@@ -30,7 +30,6 @@ public class RatingServiceImplTest {
                 .id(UUID.randomUUID())
                 .consultationId(UUID.randomUUID())
                 .doctorId(UUID.randomUUID())
-                .userId(UUID.randomUUID())
                 .score(4)
                 .comment("Dokternya informatif")
                 .build();

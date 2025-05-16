@@ -39,13 +39,6 @@ public class RatingRepositoryTest {
     }
 
     @Test
-    void testFindByUserId() {
-        List<Rating> result = ratingRepository.findAllByUserId(rating.getUserId());
-        assertThat(result).hasSize(1);
-        assertThat(result.get(0).getComment()).contains("Mantap");
-    }
-
-    @Test
     void testFindByConsultationId() {
         List<Rating> result = ratingRepository.findAllByConsultationId(rating.getConsultationId());
         assertThat(result).hasSize(1);

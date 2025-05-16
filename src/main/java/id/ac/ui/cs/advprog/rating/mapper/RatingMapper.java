@@ -10,7 +10,6 @@ public class RatingMapper {
         return Rating.builder()
                 .consultationId(request.getConsultationId())
                 .doctorId(request.getDoctorId())
-                .userId(request.getUserId())
                 .score(request.getScore())
                 .comment(request.getComment())
                 .build();
@@ -21,7 +20,6 @@ public class RatingMapper {
                 .id(rating.getId())
                 .consultationId(rating.getConsultationId())
                 .doctorId(rating.getDoctorId())
-                .userId(rating.getUserId())
                 .score(rating.getScore())
                 .comment(rating.getComment())
                 .createdAt(rating.getCreatedAt())

@@ -18,7 +18,6 @@ public class RatingTest {
 
         assertEquals(consultationId, rating.getConsultationId());
         assertEquals(doctorId, rating.getDoctorId());
-        assertEquals(userId, rating.getUserId());
         assertEquals(5, rating.getScore());
         assertEquals("Great consultation!", rating.getComment());
         assertNotNull(rating.getCreatedAt());

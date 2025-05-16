@@ -14,7 +14,6 @@ public class RatingResponse {
     private UUID id;
     private UUID consultationId;
     private UUID doctorId;
-    private UUID userId;
     private Integer score;
     private String comment;
     private LocalDateTime createdAt;

@@ -12,19 +12,16 @@ public class RatingRequestTest {
     void testBuilderAndGetter() {
         UUID consultationId = UUID.randomUUID();
         UUID doctorId = UUID.randomUUID();
-        UUID userId = UUID.randomUUID();
 
         RatingRequest request = RatingRequest.builder()
                 .consultationId(consultationId)
                 .doctorId(doctorId)
-                .userId(userId)
                 .score(5)
                 .comment("Excellent service")
                 .build();
 
         assertEquals(consultationId, request.getConsultationId());
         assertEquals(doctorId, request.getDoctorId());
-        assertEquals(userId, request.getUserId());
         assertEquals(5, request.getScore());
         assertEquals("Excellent service", request.getComment());
     }

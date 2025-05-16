@@ -52,7 +52,6 @@ public class RatingControllerTest {
                 .id(UUID.randomUUID())
                 .consultationId(UUID.randomUUID())
                 .doctorId(UUID.randomUUID())
-                .userId(UUID.randomUUID())
                 .score(5)
                 .comment("Great consultation!")
                 .createdAt(LocalDateTime.now())
@@ -61,7 +60,6 @@ public class RatingControllerTest {
         request = RatingRequest.builder()
                 .consultationId(rating.getConsultationId())
                 .doctorId(rating.getDoctorId())
-                .userId(rating.getUserId())
                 .score(rating.getScore())
                 .comment(rating.getComment())
                 .build();

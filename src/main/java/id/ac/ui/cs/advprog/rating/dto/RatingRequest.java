@@ -12,7 +12,6 @@ import java.util.UUID;
 public class RatingRequest {
     private UUID consultationId;
     private UUID doctorId;
-    private UUID userId;
     private Integer score;
     private String comment;
 }
