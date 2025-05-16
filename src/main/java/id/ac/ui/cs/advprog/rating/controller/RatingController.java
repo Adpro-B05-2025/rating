@@ -8,6 +8,11 @@ import id.ac.ui.cs.advprog.rating.model.Rating;
 import id.ac.ui.cs.advprog.rating.service.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
+
 
 import java.util.Collections;
 import java.util.List;
@@ -27,7 +32,18 @@ public class RatingController {
 
     @PostMapping
     public ApiResponse<RatingResponse> createRating(@RequestBody RatingRequest request) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        if (auth == null || !auth.isAuthenticated() || auth.getPrincipal().equals("anonymousUser")) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorized: JWT token missing or invalid");
+        }
+
+        String userIdString = (String) auth.getPrincipal();
+        Long userId = Long.valueOf(userIdString);
+
         Rating rating = RatingMapper.toEntity(request);
+        rating.setUserId(userId);
+
         Rating created = ratingService.create(rating);
         RatingResponse response = RatingMapper.toResponse(created);
 
@@ -37,6 +53,7 @@ public class RatingController {
                 .data(Collections.singletonList(response))
                 .build();
     }
+
 
     @GetMapping
     public ApiResponse<RatingResponse> getAllRatings() {
