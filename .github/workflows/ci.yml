@@ -12,6 +12,8 @@ jobs:
   test:
     name: Run tests
     runs-on: ubuntu-22.04
+    env:
+      PASSWORD_DB: ${{ secrets.PASSWORD_DB }}
 
     steps:
       - name: Check out the Git repository
