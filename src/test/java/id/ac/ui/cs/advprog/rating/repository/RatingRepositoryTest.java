@@ -24,7 +24,7 @@ public class RatingRepositoryTest {
         rating = new Rating(
                 UUID.randomUUID(),
                 2L,
-                UUID.randomUUID(),
+                1L,
                 5,
                 "Mantap dokternya!"
         );

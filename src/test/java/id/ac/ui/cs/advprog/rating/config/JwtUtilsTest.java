@@ -3,11 +3,11 @@ package id.ac.ui.cs.advprog.rating.config;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.security.Key;
+import java.util.Base64;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,15 +15,24 @@ import static org.junit.jupiter.api.Assertions.*;
 class JwtUtilsTest {
 
     private JwtUtils jwtUtils;
-    private final String secret = "ini-secret-key-super-panjang-dan-aman";
+
+    // Plain secret key, nanti encode base64
+    private final String plainSecret = "ini-secret-key-super-panjang-dan-aman";
+
+    // Secret base64 encoded sesuai ekspektasi JwtUtils
+    private String base64Secret;
 
     @BeforeEach
     void setUp() {
-        jwtUtils = new JwtUtils(secret);
+        base64Secret = Base64.getEncoder().encodeToString(plainSecret.getBytes());
+        jwtUtils = new JwtUtils(base64Secret);
     }
 
     private String generateToken(String userId, long expirationMillis) {
-        Key key = Keys.hmacShaKeyFor(secret.getBytes());
+        // Sama seperti JwtUtils, decode base64 dulu
+        byte[] keyBytes = java.util.Base64.getDecoder().decode(base64Secret);
+        Key key = Keys.hmacShaKeyFor(keyBytes);
+
         return Jwts.builder()
                 .setSubject(userId)
                 .setIssuedAt(new Date())
@@ -54,9 +63,12 @@ class JwtUtilsTest {
 
     @Test
     void testValidateJwtToken_InvalidSignature() {
-        // Token signed with different key
-        String fakeSecret = "fake-secret-key-that-does-not-match";
-        Key fakeKey = Keys.hmacShaKeyFor(fakeSecret.getBytes());
+        // Token signed with different key (fake secret also base64 encoded)
+        String fakePlainSecret = "fake-secret-key-that-does-not-match";
+        String fakeBase64Secret = Base64.getEncoder().encodeToString(fakePlainSecret.getBytes());
+        byte[] fakeKeyBytes = Base64.getDecoder().decode(fakeBase64Secret);
+        Key fakeKey = Keys.hmacShaKeyFor(fakeKeyBytes);
+
         String token = Jwts.builder()
                 .setSubject("userX")
                 .signWith(fakeKey, SignatureAlgorithm.HS256)
