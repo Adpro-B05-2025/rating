@@ -2,7 +2,6 @@ package id.ac.ui.cs.advprog.rating.service;
 
 import id.ac.ui.cs.advprog.rating.model.Rating;
 import id.ac.ui.cs.advprog.rating.repository.RatingRepository;
-import id.ac.ui.cs.advprog.rating.strategy.RatingValidationStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,18 +13,14 @@ import java.util.UUID;
 public class RatingServiceImpl implements RatingService {
 
     private final RatingRepository ratingRepository;
-    private final RatingValidationStrategy validationStrategy;
 
     @Autowired
-    public RatingServiceImpl(RatingRepository ratingRepository,
-                             RatingValidationStrategy validationStrategy) {
+    public RatingServiceImpl(RatingRepository ratingRepository) {
         this.ratingRepository = ratingRepository;
-        this.validationStrategy = validationStrategy;
     }
 
     @Override
     public Rating create(Rating rating) {
-        validationStrategy.validate(rating);
         rating.setCreatedAt(LocalDateTime.now());
         return ratingRepository.save(rating);
     }
@@ -35,7 +30,6 @@ public class RatingServiceImpl implements RatingService {
         Rating existingRating = ratingRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Rating not found with id: " + id));
 
-        validationStrategy.validate(updatedRating);
         existingRating.setScore(updatedRating.getScore());
         existingRating.setComment(updatedRating.getComment());
         return ratingRepository.save(existingRating);
