@@ -29,6 +29,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.postgresql:postgresql:42.7.3")
+    implementation("io.github.cdimascio:dotenv-java:2.2.4")
 
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
