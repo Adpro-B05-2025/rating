@@ -11,10 +11,8 @@ public class RatingTest {
     @Test
     void testCreateRatingConstructor() {
         UUID consultationId = UUID.randomUUID();
-        UUID doctorId = UUID.randomUUID();
-        UUID userId = UUID.randomUUID();
 
-        Rating rating = new Rating(consultationId, 2L, userId, 5, "Great consultation!");
+        Rating rating = new Rating(consultationId, 2L, 1L, 5, "Great consultation!");
 
         assertEquals(consultationId, rating.getConsultationId());
         assertEquals(2L, rating.getDoctorId());
