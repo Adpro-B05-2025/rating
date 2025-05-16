@@ -4,6 +4,8 @@ import id.ac.ui.cs.advprog.rating.dto.RatingRequest;
 import id.ac.ui.cs.advprog.rating.dto.RatingResponse;
 import id.ac.ui.cs.advprog.rating.model.Rating;
 
+import java.time.LocalDateTime;
+
 public class RatingMapper {
 
     public static Rating toEntity(RatingRequest request) {
@@ -12,6 +14,7 @@ public class RatingMapper {
                 .doctorId(request.getDoctorId())
                 .score(request.getScore())
                 .comment(request.getComment())
+                .createdAt(LocalDateTime.now())
                 .build();
     }
 
