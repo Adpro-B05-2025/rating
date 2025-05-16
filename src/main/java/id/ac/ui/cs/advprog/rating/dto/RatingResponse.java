@@ -13,7 +13,7 @@ import java.util.UUID;
 public class RatingResponse {
     private UUID id;
     private UUID consultationId;
-    private UUID doctorId;
+    private Long doctorId;
     private Integer score;
     private String comment;
     private LocalDateTime createdAt;

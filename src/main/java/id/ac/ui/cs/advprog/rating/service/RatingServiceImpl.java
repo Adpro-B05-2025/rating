@@ -55,7 +55,7 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public List<Rating> findAllByDoctorId(UUID doctorId) {
+    public List<Rating> findAllByDoctorId(Long doctorId) {
         return ratingRepository.findAllByDoctorId(doctorId);
     }
 

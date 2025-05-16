@@ -11,7 +11,7 @@ import java.util.UUID;
 @Builder
 public class RatingRequest {
     private UUID consultationId;
-    private UUID doctorId;
+    private Long doctorId;
     private Integer score;
     private String comment;
 }

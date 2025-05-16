@@ -16,7 +16,7 @@ public class RatingMapperTest {
     void testToEntity() {
         RatingRequest request = RatingRequest.builder()
                 .consultationId(UUID.randomUUID())
-                .doctorId(UUID.randomUUID())
+                .doctorId(2L)
                 .score(4)
                 .comment("Very good")
                 .build();
@@ -34,7 +34,7 @@ public class RatingMapperTest {
         Rating rating = Rating.builder()
                 .id(UUID.randomUUID())
                 .consultationId(UUID.randomUUID())
-                .doctorId(UUID.randomUUID())
+                .doctorId(2L)
                 .score(5)
                 .comment("Excellent")
                 .createdAt(LocalDateTime.now())

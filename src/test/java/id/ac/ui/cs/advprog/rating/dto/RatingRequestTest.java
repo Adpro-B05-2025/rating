@@ -11,17 +11,16 @@ public class RatingRequestTest {
     @Test
     void testBuilderAndGetter() {
         UUID consultationId = UUID.randomUUID();
-        UUID doctorId = UUID.randomUUID();
 
         RatingRequest request = RatingRequest.builder()
                 .consultationId(consultationId)
-                .doctorId(doctorId)
+                .doctorId(2L)
                 .score(5)
                 .comment("Excellent service")
                 .build();
 
         assertEquals(consultationId, request.getConsultationId());
-        assertEquals(doctorId, request.getDoctorId());
+        assertEquals(2L, request.getDoctorId());
         assertEquals(5, request.getScore());
         assertEquals("Excellent service", request.getComment());
     }

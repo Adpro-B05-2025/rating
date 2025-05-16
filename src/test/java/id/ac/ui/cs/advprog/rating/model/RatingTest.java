@@ -14,10 +14,10 @@ public class RatingTest {
         UUID doctorId = UUID.randomUUID();
         UUID userId = UUID.randomUUID();
 
-        Rating rating = new Rating(consultationId, doctorId, userId, 5, "Great consultation!");
+        Rating rating = new Rating(consultationId, 2L, userId, 5, "Great consultation!");
 
         assertEquals(consultationId, rating.getConsultationId());
-        assertEquals(doctorId, rating.getDoctorId());
+        assertEquals(2L, rating.getDoctorId());
         assertEquals(5, rating.getScore());
         assertEquals("Great consultation!", rating.getComment());
         assertNotNull(rating.getCreatedAt());

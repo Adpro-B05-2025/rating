@@ -51,7 +51,7 @@ public class RatingControllerTest {
         rating = Rating.builder()
                 .id(UUID.randomUUID())
                 .consultationId(UUID.randomUUID())
-                .doctorId(UUID.randomUUID())
+                .doctorId(2L)
                 .score(5)
                 .comment("Great consultation!")
                 .createdAt(LocalDateTime.now())

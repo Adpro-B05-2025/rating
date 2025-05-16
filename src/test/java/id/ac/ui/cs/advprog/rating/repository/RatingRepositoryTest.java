@@ -23,7 +23,7 @@ public class RatingRepositoryTest {
     void setUp() {
         rating = new Rating(
                 UUID.randomUUID(),
-                UUID.randomUUID(),
+                2L,
                 UUID.randomUUID(),
                 5,
                 "Mantap dokternya!"
@@ -33,7 +33,7 @@ public class RatingRepositoryTest {
 
     @Test
     void testFindByDoctorId() {
-        List<Rating> result = ratingRepository.findAllByDoctorId(rating.getDoctorId());
+        List<Rating> result = ratingRepository.findAllByDoctorId(2L);
         assertThat(result).hasSize(1);
         assertThat(result.get(0).getScore()).isEqualTo(5);
     }

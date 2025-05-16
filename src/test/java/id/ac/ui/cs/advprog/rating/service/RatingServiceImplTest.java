@@ -29,7 +29,7 @@ public class RatingServiceImplTest {
         rating = Rating.builder()
                 .id(UUID.randomUUID())
                 .consultationId(UUID.randomUUID())
-                .doctorId(UUID.randomUUID())
+                .doctorId(2L)
                 .score(4)
                 .comment("Dokternya informatif")
                 .build();
@@ -52,7 +52,7 @@ public class RatingServiceImplTest {
         Rating updatedRating = new Rating(
                 ratingId,
                 rating.getConsultationId(),
-                rating.getDoctorId(),
+                2L,
                 rating.getUserId(),
                 5,
                 "Sangat bagus",

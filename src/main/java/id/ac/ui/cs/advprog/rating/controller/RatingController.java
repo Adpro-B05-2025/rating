@@ -65,7 +65,7 @@ public class RatingController {
     }
 
     @GetMapping("/doctor/{doctorId}")
-    public ApiResponse<RatingResponse> getRatingsByDoctorId(@PathVariable UUID doctorId) {
+    public ApiResponse<RatingResponse> getRatingsByDoctorId(@PathVariable Long doctorId) {
         List<RatingResponse> ratings = ratingService.findAllByDoctorId(doctorId)
                 .stream()
                 .map(RatingMapper::toResponse)
