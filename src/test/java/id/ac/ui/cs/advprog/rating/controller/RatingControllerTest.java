@@ -75,8 +75,10 @@ public class RatingControllerTest {
                         .contentType("application/json")
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.score").value(5))
-                .andExpect(jsonPath("$.comment").value("Great consultation!"));
+                .andExpect(jsonPath("$.success").value(1))
+                .andExpect(jsonPath("$.message").value("OK"))
+                .andExpect(jsonPath("$.data[0].score").value(5))
+                .andExpect(jsonPath("$.data[0].comment").value("Great consultation!"));
     }
 
     @Test
@@ -85,7 +87,9 @@ public class RatingControllerTest {
 
         mockMvc.perform(get("/api/rating"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].comment").value("Great consultation!"));
+                .andExpect(jsonPath("$.success").value(1))
+                .andExpect(jsonPath("$.message").value("OK"))
+                .andExpect(jsonPath("$.data[0].comment").value("Great consultation!"));
     }
 
     @Test
@@ -94,6 +98,8 @@ public class RatingControllerTest {
 
         mockMvc.perform(get("/api/rating/" + rating.getId()))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(rating.getId().toString()));
+                .andExpect(jsonPath("$.success").value(1))
+                .andExpect(jsonPath("$.message").value("OK"))
+                .andExpect(jsonPath("$.data[0].id").value(rating.getId().toString()));
     }
 }
