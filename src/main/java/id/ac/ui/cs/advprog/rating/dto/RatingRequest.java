@@ -10,7 +10,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 public class RatingRequest {
-    private UUID consultationId;
+    private Long consultationId;
     private Long doctorId;
     private Integer score;
     private String comment;

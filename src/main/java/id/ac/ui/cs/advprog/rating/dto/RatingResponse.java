@@ -11,8 +11,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 public class RatingResponse {
-    private UUID id;
-    private UUID consultationId;
+    private Long id;
+    private Long consultationId;
     private Long doctorId;
     private Integer score;
     private String comment;

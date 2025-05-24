@@ -26,7 +26,7 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public Rating update(UUID id, Rating updatedRating) {
+    public Rating update(Long id, Rating updatedRating) {
         Rating existingRating = ratingRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Rating not found with id: " + id));
 
@@ -36,7 +36,7 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public void deleteById(UUID id) {
+    public void deleteById(Long id) {
         if (!ratingRepository.existsById(id)) {
             throw new IllegalArgumentException("Rating not found with id: " + id);
         }
@@ -49,7 +49,7 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public Rating findById(UUID id) {
+    public Rating findById(Long id) {
         return ratingRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Rating not found with id: " + id));
     }
@@ -60,7 +60,7 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public List<Rating> findAllByConsultationId(UUID consultationId) {
+    public List<Rating> findAllByConsultationId(Long consultationId) {
         return ratingRepository.findAllByConsultationId(consultationId);
     }
 }

@@ -16,10 +16,10 @@ public class Rating {
 
     @Id
     @GeneratedValue
-    private UUID id;
+    private Long id;
 
     @Column(nullable = false)
-    private UUID consultationId;
+    private Long consultationId;
 
     @Column(nullable = false)
     private Long doctorId;
@@ -35,7 +35,7 @@ public class Rating {
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
-    public Rating(UUID consultationId, Long doctorId, Long userId, Integer score, String comment) {
+    public Rating(Long consultationId, Long doctorId, Long userId, Integer score, String comment) {
         this.consultationId = consultationId;
         this.doctorId = doctorId;
         this.userId = userId;

@@ -13,10 +13,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
-
 import java.util.Collections;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -43,7 +41,7 @@ public class RatingController {
         Long userId = Long.valueOf(userIdString);
 
         if (request.getConsultationId() == null) {
-            request.setConsultationId(UUID.randomUUID());
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Consultation ID must be provided");
         }
 
         Rating rating = RatingMapper.toEntity(request);
@@ -74,7 +72,7 @@ public class RatingController {
     }
 
     @GetMapping("/{id}")
-    public ApiResponse<RatingResponse> getRatingById(@PathVariable UUID id) {
+    public ApiResponse<RatingResponse> getRatingById(@PathVariable Long id) {
         Rating rating = ratingService.findById(id);
         RatingResponse response = RatingMapper.toResponse(rating);
 
@@ -100,7 +98,7 @@ public class RatingController {
     }
 
     @GetMapping("/consultation/{consultationId}")
-    public ApiResponse<RatingResponse> getRatingsByConsultationId(@PathVariable UUID consultationId) {
+    public ApiResponse<RatingResponse> getRatingsByConsultationId(@PathVariable Long consultationId) {
         List<RatingResponse> ratings = ratingService.findAllByConsultationId(consultationId)
                 .stream()
                 .map(RatingMapper::toResponse)
@@ -114,7 +112,7 @@ public class RatingController {
     }
 
     @PutMapping("/{id}")
-    public ApiResponse<RatingResponse> updateRating(@PathVariable UUID id, @RequestBody RatingRequest request) {
+    public ApiResponse<RatingResponse> updateRating(@PathVariable Long id, @RequestBody RatingRequest request) {
         Rating updatedRating = RatingMapper.toEntity(request);
         Rating saved = ratingService.update(id, updatedRating);
         RatingResponse response = RatingMapper.toResponse(saved);
@@ -127,7 +125,7 @@ public class RatingController {
     }
 
     @DeleteMapping("/{id}")
-    public ApiResponse<Void> deleteRating(@PathVariable UUID id) {
+    public ApiResponse<Void> deleteRating(@PathVariable Long id) {
         ratingService.deleteById(id);
         return ApiResponse.<Void>builder()
                 .success(1)
