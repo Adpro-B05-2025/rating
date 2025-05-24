@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/rating")
 public class RatingController {
@@ -41,6 +42,10 @@ public class RatingController {
         String userIdString = (String) auth.getPrincipal();
         Long userId = Long.valueOf(userIdString);
 
+        if (request.getConsultationId() == null) {
+            request.setConsultationId(UUID.randomUUID());
+        }
+
         Rating rating = RatingMapper.toEntity(request);
         rating.setUserId(userId);
 
@@ -53,7 +58,6 @@ public class RatingController {
                 .data(Collections.singletonList(response))
                 .build();
     }
-
 
     @GetMapping
     public ApiResponse<RatingResponse> getAllRatings() {
