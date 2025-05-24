@@ -22,7 +22,7 @@ public class RatingRepositoryTest {
     @BeforeEach
     void setUp() {
         rating = new Rating(
-                UUID.randomUUID(),
+                5L,
                 2L,
                 1L,
                 5,

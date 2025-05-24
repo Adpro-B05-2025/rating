@@ -16,10 +16,8 @@ class JwtUtilsTest {
 
     private JwtUtils jwtUtils;
 
-    // Plain secret key, nanti encode base64
     private final String plainSecret = "ini-secret-key-super-panjang-dan-aman";
 
-    // Secret base64 encoded sesuai ekspektasi JwtUtils
     private String base64Secret;
 
     @BeforeEach
@@ -29,7 +27,6 @@ class JwtUtilsTest {
     }
 
     private String generateToken(String userId, long expirationMillis) {
-        // Sama seperti JwtUtils, decode base64 dulu
         byte[] keyBytes = java.util.Base64.getDecoder().decode(base64Secret);
         Key key = Keys.hmacShaKeyFor(keyBytes);
 
@@ -63,7 +60,6 @@ class JwtUtilsTest {
 
     @Test
     void testValidateJwtToken_InvalidSignature() {
-        // Token signed with different key (fake secret also base64 encoded)
         String fakePlainSecret = "fake-secret-key-that-does-not-match";
         String fakeBase64Secret = Base64.getEncoder().encodeToString(fakePlainSecret.getBytes());
         byte[] fakeKeyBytes = Base64.getDecoder().decode(fakeBase64Secret);

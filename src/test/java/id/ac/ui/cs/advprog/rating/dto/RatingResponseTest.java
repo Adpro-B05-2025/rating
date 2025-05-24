@@ -11,21 +11,20 @@ public class RatingResponseTest {
 
     @Test
     void testBuilderAndGetter() {
-        UUID id = UUID.randomUUID();
-        UUID consultationId = UUID.randomUUID();
+
         LocalDateTime createdAt = LocalDateTime.now();
 
         RatingResponse response = RatingResponse.builder()
-                .id(id)
-                .consultationId(consultationId)
+                .id(1L)
+                .consultationId(2L)
                 .doctorId(2L)
                 .score(4)
                 .comment("Baik")
                 .createdAt(createdAt)
                 .build();
 
-        assertEquals(id, response.getId());
-        assertEquals(consultationId, response.getConsultationId());
+        assertEquals(1L, response.getId());
+        assertEquals(2L, response.getConsultationId());
         assertEquals(2L, response.getDoctorId());
         assertEquals(4, response.getScore());
         assertEquals("Baik", response.getComment());

@@ -6,7 +6,6 @@ import id.ac.ui.cs.advprog.rating.model.Rating;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -15,7 +14,7 @@ public class RatingMapperTest {
     @Test
     void testToEntity() {
         RatingRequest request = RatingRequest.builder()
-                .consultationId(UUID.randomUUID())
+                .consultationId(2L)
                 .doctorId(2L)
                 .score(4)
                 .comment("Very good")
@@ -32,8 +31,8 @@ public class RatingMapperTest {
     @Test
     void testToResponse() {
         Rating rating = Rating.builder()
-                .id(UUID.randomUUID())
-                .consultationId(UUID.randomUUID())
+                .id(2L)
+                .consultationId(13L)
                 .doctorId(2L)
                 .score(5)
                 .comment("Excellent")

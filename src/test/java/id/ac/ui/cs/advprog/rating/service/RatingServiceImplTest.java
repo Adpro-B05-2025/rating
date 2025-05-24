@@ -27,8 +27,8 @@ public class RatingServiceImplTest {
         ratingService = new RatingServiceImpl(ratingRepository);
 
         rating = Rating.builder()
-                .id(UUID.randomUUID())
-                .consultationId(UUID.randomUUID())
+                .id(4L)
+                .consultationId(2L)
                 .doctorId(2L)
                 .score(4)
                 .comment("Dokternya informatif")
@@ -48,9 +48,8 @@ public class RatingServiceImplTest {
 
     @Test
     void testUpdateSuccess() {
-        UUID ratingId = rating.getId();
         Rating updatedRating = new Rating(
-                ratingId,
+                3L,
                 rating.getConsultationId(),
                 2L,
                 rating.getUserId(),
@@ -59,10 +58,10 @@ public class RatingServiceImplTest {
                 rating.getCreatedAt()
         );
 
-        when(ratingRepository.findById(ratingId)).thenReturn(Optional.of(rating));
+        when(ratingRepository.findById(3L)).thenReturn(Optional.of(rating));
         when(ratingRepository.save(any(Rating.class))).thenReturn(updatedRating);
 
-        Rating result = ratingService.update(ratingId, updatedRating);
+        Rating result = ratingService.update(3L, updatedRating);
 
         assertThat(result.getScore()).isEqualTo(5);
         assertThat(result.getComment()).contains("Sangat bagus");
@@ -71,12 +70,11 @@ public class RatingServiceImplTest {
 
     @Test
     void testUpdateRatingNotFound() {
-        UUID fakeId = UUID.randomUUID();
         Rating updated = Rating.builder().score(5).comment("Updated").build();
 
-        when(ratingRepository.findById(fakeId)).thenReturn(Optional.empty());
+        when(ratingRepository.findById(15L)).thenReturn(Optional.empty());
 
-        assertThrows(IllegalArgumentException.class, () -> ratingService.update(fakeId, updated));
+        assertThrows(IllegalArgumentException.class, () -> ratingService.update(15L, updated));
     }
 
     @Test
@@ -89,8 +87,8 @@ public class RatingServiceImplTest {
     @Test
     void testFindByIdNotFound() {
         UUID fakeId = UUID.randomUUID();
-        when(ratingRepository.findById(fakeId)).thenReturn(Optional.empty());
-        assertThrows(IllegalArgumentException.class, () -> ratingService.findById(fakeId));
+        when(ratingRepository.findById(15L)).thenReturn(Optional.empty());
+        assertThrows(IllegalArgumentException.class, () -> ratingService.findById(15L));
     }
 
     @Test
@@ -102,16 +100,17 @@ public class RatingServiceImplTest {
 
     @Test
     void testDeleteByIdSuccess() {
-        UUID id = rating.getId();
+        Long id = 1L;
         when(ratingRepository.existsById(id)).thenReturn(true);
         ratingService.deleteById(id);
         verify(ratingRepository).deleteById(id);
     }
 
+
     @Test
     void testDeleteByIdNotFound() {
         UUID id = UUID.randomUUID();
-        when(ratingRepository.existsById(id)).thenReturn(false);
-        assertThrows(IllegalArgumentException.class, () -> ratingService.deleteById(id));
+        when(ratingRepository.existsById(1L)).thenReturn(false);
+        assertThrows(IllegalArgumentException.class, () -> ratingService.deleteById(1L));
     }
 }

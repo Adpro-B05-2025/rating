@@ -50,8 +50,8 @@ public class RatingControllerTest {
     @BeforeEach
     void setUp() {
         rating = Rating.builder()
-                .id(UUID.randomUUID())
-                .consultationId(UUID.randomUUID())
+                .id(1L)
+                .consultationId(2L)
                 .doctorId(2L)
                 .score(5)
                 .comment("Great consultation!")
@@ -126,7 +126,7 @@ public class RatingControllerTest {
 
     @Test
     void testUpdateRating() throws Exception {
-        when(ratingService.update(any(UUID.class), any(Rating.class))).thenReturn(rating);
+        when(ratingService.update(any(Long.class), any(Rating.class))).thenReturn(rating);
 
         mockMvc.perform(put("/api/rating/" + rating.getId())
                         .contentType("application/json")
