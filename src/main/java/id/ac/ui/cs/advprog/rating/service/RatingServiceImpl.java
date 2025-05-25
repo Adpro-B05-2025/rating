@@ -2,14 +2,7 @@ package id.ac.ui.cs.advprog.rating.service;
 
 import id.ac.ui.cs.advprog.rating.model.Rating;
 import id.ac.ui.cs.advprog.rating.repository.RatingRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -18,14 +11,11 @@ import java.util.List;
 public class RatingServiceImpl implements RatingService {
 
     private final RatingRepository ratingRepository;
-    private final RestTemplate restTemplate;
+    private final AverageRatingUpdater averageRatingUpdater;
 
-    private final String authProfileBaseUrl = "http://localhost:8081/api/caregiver/";
-
-    @Autowired
-    public RatingServiceImpl(RatingRepository ratingRepository) {
+    public RatingServiceImpl(RatingRepository ratingRepository, AverageRatingUpdater averageRatingUpdater) {
         this.ratingRepository = ratingRepository;
-        this.restTemplate = new RestTemplate();
+        this.averageRatingUpdater = averageRatingUpdater;
     }
 
     @Override
@@ -33,21 +23,8 @@ public class RatingServiceImpl implements RatingService {
         rating.setCreatedAt(LocalDateTime.now());
         Rating saved = ratingRepository.save(rating);
 
-        // Setelah berhasil simpan, panggil update average rating
         try {
-            String url = authProfileBaseUrl + "/" + saved.getDoctorId() + "/averageRating";
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.APPLICATION_JSON);
-            HttpEntity<String> entity = new HttpEntity<>("", headers);
-
-            ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.PATCH, entity, String.class);
-
-            // Optional: cek response
-            if (!response.getStatusCode().is2xxSuccessful()) {
-                // Log error, tapi jangan throw exception biar rating tetap sukses
-                System.err.println("Failed to update average rating for doctorId " + saved.getDoctorId());
-            }
-
+            averageRatingUpdater.updateAverageRating(saved.getDoctorId());
         } catch (Exception e) {
             System.err.println("Error updating average rating: " + e.getMessage());
         }
@@ -62,6 +39,7 @@ public class RatingServiceImpl implements RatingService {
 
         existingRating.setScore(updatedRating.getScore());
         existingRating.setComment(updatedRating.getComment());
+
         return ratingRepository.save(existingRating);
     }
 
@@ -94,5 +72,3 @@ public class RatingServiceImpl implements RatingService {
         return ratingRepository.findAllByConsultationId(consultationId);
     }
 }
-
-
