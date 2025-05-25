@@ -37,6 +37,5 @@ out/
 .vscode/
 
 # Ignore log files
-*.log
+*.logs
 logs/
-
