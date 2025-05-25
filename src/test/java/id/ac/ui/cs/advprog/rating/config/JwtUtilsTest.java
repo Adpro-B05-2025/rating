@@ -27,7 +27,7 @@ class JwtUtilsTest {
     }
 
     private String generateToken(String userId, long expirationMillis) {
-        byte[] keyBytes = java.util.Base64.getDecoder().decode(base64Secret);
+        byte[] keyBytes = Base64.getDecoder().decode(base64Secret);
         Key key = Keys.hmacShaKeyFor(keyBytes);
 
         return Jwts.builder()
@@ -71,5 +71,19 @@ class JwtUtilsTest {
                 .compact();
 
         assertFalse(jwtUtils.validateJwtToken(token));
+    }
+
+    @Test
+    void testGetSigningKey_whenJwtSecretIsNull_throwsException() {
+        JwtUtils jwtUtilsWithNullSecret = new JwtUtils(null);
+        IllegalStateException exception = assertThrows(IllegalStateException.class,
+                () -> jwtUtilsWithNullSecret.getUserIdFromJwtToken("dummy.token.here"));
+        assertEquals("JWT secret key is not initialized", exception.getMessage());
+    }
+
+    @Test
+    void testValidateJwtToken_InvalidTokenFormat() {
+        String invalidToken = "thisIsNotAJwtToken";
+        assertFalse(jwtUtils.validateJwtToken(invalidToken));
     }
 }
