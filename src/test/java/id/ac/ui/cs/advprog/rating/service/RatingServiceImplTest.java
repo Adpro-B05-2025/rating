@@ -4,13 +4,6 @@ import id.ac.ui.cs.advprog.rating.model.Rating;
 import id.ac.ui.cs.advprog.rating.repository.RatingRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentCaptor;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -23,22 +16,15 @@ import static org.mockito.Mockito.*;
 public class RatingServiceImplTest {
 
     private RatingRepository ratingRepository;
-    private RestTemplate restTemplate;
+    private AverageRatingUpdater averageRatingUpdater;
     private RatingServiceImpl ratingService;
     private Rating rating;
 
     @BeforeEach
     void setUp() {
         ratingRepository = mock(RatingRepository.class);
-        restTemplate = mock(RestTemplate.class);
-        ratingService = new RatingServiceImpl(ratingRepository);
-        try {
-            var field = RatingServiceImpl.class.getDeclaredField("restTemplate");
-            field.setAccessible(true);
-            field.set(ratingService, restTemplate);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        averageRatingUpdater = mock(AverageRatingUpdater.class);
+        ratingService = new RatingServiceImpl(ratingRepository, averageRatingUpdater);
 
         rating = Rating.builder()
                 .id(4L)
@@ -53,65 +39,27 @@ public class RatingServiceImplTest {
     @Test
     void testCreate_SuccessfulUpdateAverageRatingCall() {
         when(ratingRepository.save(any(Rating.class))).thenAnswer(i -> i.getArgument(0));
-        when(restTemplate.exchange(
-                anyString(),
-                eq(HttpMethod.PATCH),
-                any(HttpEntity.class),
-                eq(String.class)))
-                .thenReturn(ResponseEntity.ok("Success"));
+        doNothing().when(averageRatingUpdater).updateAverageRating(anyLong());
 
         Rating saved = ratingService.create(rating);
 
         assertThat(saved.getScore()).isEqualTo(4);
         assertThat(saved.getCreatedAt()).isNotNull();
         verify(ratingRepository, times(1)).save(saved);
-
-        ArgumentCaptor<String> urlCaptor = ArgumentCaptor.forClass(String.class);
-        ArgumentCaptor<HttpEntity> entityCaptor = ArgumentCaptor.forClass(HttpEntity.class);
-
-        verify(restTemplate, times(1)).exchange(
-                urlCaptor.capture(),
-                eq(HttpMethod.PATCH),
-                entityCaptor.capture(),
-                eq(String.class));
-
-        assertThat(urlCaptor.getValue()).contains(saved.getDoctorId().toString());
-
-        HttpEntity<?> capturedEntity = entityCaptor.getValue();
-        HttpHeaders headers = (HttpHeaders) capturedEntity.getHeaders();
-        assertThat(headers.getContentType()).isEqualTo(MediaType.APPLICATION_JSON);
-    }
-
-    @Test
-    void testCreate_FailedUpdateAverageRatingCall() {
-        when(ratingRepository.save(any(Rating.class))).thenAnswer(i -> i.getArgument(0));
-        when(restTemplate.exchange(anyString(), eq(HttpMethod.PATCH), any(HttpEntity.class), eq(String.class)))
-                .thenReturn(ResponseEntity.status(500).body("Error"));
-
-        Rating saved = ratingService.create(rating);
-
-        assertThat(saved).isNotNull();
-        verify(restTemplate, times(1)).exchange(
-                anyString(),
-                eq(HttpMethod.PATCH),
-                any(HttpEntity.class),
-                eq(String.class));
+        verify(averageRatingUpdater, times(1)).updateAverageRating(saved.getDoctorId());
     }
 
     @Test
     void testCreate_ExceptionInUpdateAverageRatingCall() {
         when(ratingRepository.save(any(Rating.class))).thenAnswer(i -> i.getArgument(0));
-        when(restTemplate.exchange(anyString(), eq(HttpMethod.PATCH), any(HttpEntity.class), eq(String.class)))
-                .thenThrow(new RuntimeException("Connection refused"));
+        doThrow(new RuntimeException("Connection refused"))
+                .when(averageRatingUpdater).updateAverageRating(anyLong());
 
         Rating saved = ratingService.create(rating);
 
         assertThat(saved).isNotNull();
-        verify(restTemplate, times(1)).exchange(
-                anyString(),
-                eq(HttpMethod.PATCH),
-                any(HttpEntity.class),
-                eq(String.class));
+        verify(ratingRepository).save(saved);
+        verify(averageRatingUpdater).updateAverageRating(saved.getDoctorId());
     }
 
     @Test
@@ -169,7 +117,7 @@ public class RatingServiceImplTest {
         when(ratingRepository.findAll()).thenReturn(List.of(rating));
         List<Rating> result = ratingService.findAll();
         assertThat(result).hasSize(1);
-        assertThat(result.get(0)).isEqualTo(rating);
+        assertThat(result.getFirst()).isEqualTo(rating);
     }
 
     @Test
@@ -177,7 +125,7 @@ public class RatingServiceImplTest {
         when(ratingRepository.findAllByDoctorId(2L)).thenReturn(List.of(rating));
         List<Rating> result = ratingService.findAllByDoctorId(2L);
         assertThat(result).hasSize(1);
-        assertThat(result.get(0)).isEqualTo(rating);
+        assertThat(result.getFirst()).isEqualTo(rating);
     }
 
     @Test
@@ -185,6 +133,6 @@ public class RatingServiceImplTest {
         when(ratingRepository.findAllByConsultationId(2L)).thenReturn(List.of(rating));
         List<Rating> result = ratingService.findAllByConsultationId(2L);
         assertThat(result).hasSize(1);
-        assertThat(result.get(0)).isEqualTo(rating);
+        assertThat(result.getFirst()).isEqualTo(rating);
     }
 }
