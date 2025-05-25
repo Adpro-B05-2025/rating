@@ -390,3 +390,137 @@ Action:
 
 Identify and stop the process that's listening on port 8083 or configure this application to listen on another port.
 
+2025-05-26T12:50:45.925+07:00  INFO 18916 --- [rating] [Test worker] i.a.u.c.a.rating.RatingApplicationTests  : Starting RatingApplicationTests using Java 21.0.2 with PID 18916 (started by nisri in C:\Users\nisri\OneDrive\Documents\University\Adpro\rating)
+2025-05-26T12:50:45.930+07:00  INFO 18916 --- [rating] [Test worker] i.a.u.c.a.rating.RatingApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2025-05-26T12:50:49.900+07:00  INFO 18916 --- [rating] [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-26T12:50:50.159+07:00  INFO 18916 --- [rating] [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 211 ms. Found 1 JPA repository interface.
+2025-05-26T12:50:53.450+07:00  INFO 18916 --- [rating] [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-26T12:50:53.928+07:00  INFO 18916 --- [rating] [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-26T12:50:54.153+07:00  INFO 18916 --- [rating] [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-26T12:50:55.684+07:00  INFO 18916 --- [rating] [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-26T12:50:55.850+07:00  INFO 18916 --- [rating] [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-26T12:50:56.740+07:00  INFO 18916 --- [rating] [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2229079d
+2025-05-26T12:50:56.748+07:00  INFO 18916 --- [rating] [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-26T12:50:56.950+07:00  WARN 18916 --- [rating] [Test worker] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-26T12:50:57.043+07:00  INFO 18916 --- [rating] [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-26T12:51:01.204+07:00  INFO 18916 --- [rating] [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-26T12:51:01.381+07:00  INFO 18916 --- [rating] [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-26T12:51:03.274+07:00  WARN 18916 --- [rating] [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-26T12:51:06.053+07:00  INFO 18916 --- [rating] [Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoints beneath base path '/actuator'
+2025-05-26T12:51:08.219+07:00  INFO 18916 --- [rating] [Test worker] i.a.u.c.a.rating.RatingApplicationTests  : Started RatingApplicationTests in 23.439 seconds (process running for 29.899)
+2025-05-26T12:51:13.325+07:00  INFO 18916 --- [rating] [Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration id.ac.ui.cs.advprog.rating.RatingApplication for test class id.ac.ui.cs.advprog.rating.controller.RatingControllerTest
+2025-05-26T12:51:13.500+07:00  INFO 18916 --- [rating] [Test worker] i.a.u.c.a.r.c.RatingControllerTest       : Starting RatingControllerTest using Java 21.0.2 with PID 18916 (started by nisri in C:\Users\nisri\OneDrive\Documents\University\Adpro\rating)
+2025-05-26T12:51:13.500+07:00  INFO 18916 --- [rating] [Test worker] i.a.u.c.a.r.c.RatingControllerTest       : No active profile set, falling back to 1 default profile: "default"
+2025-05-26T12:51:14.946+07:00  WARN 18916 --- [rating] [Test worker] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 10848a94-c908-4107-a35c-002a5f01454b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-05-26T12:51:15.048+07:00  INFO 18916 --- [rating] [Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-05-26T12:51:15.309+07:00  INFO 18916 --- [rating] [Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-05-26T12:51:15.310+07:00  INFO 18916 --- [rating] [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-05-26T12:51:15.315+07:00  INFO 18916 --- [rating] [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 5 ms
+2025-05-26T12:51:15.373+07:00  INFO 18916 --- [rating] [Test worker] i.a.u.c.a.r.c.RatingControllerTest       : Started RatingControllerTest in 2.032 seconds (process running for 37.053)
+2025-05-26T12:51:16.411+07:00  INFO 18916 --- [rating] [Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [id.ac.ui.cs.advprog.rating.repository.RatingRepositoryTest]: RatingRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-05-26T12:51:16.499+07:00  INFO 18916 --- [rating] [Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration id.ac.ui.cs.advprog.rating.RatingApplication for test class id.ac.ui.cs.advprog.rating.repository.RatingRepositoryTest
+2025-05-26T12:51:16.608+07:00  INFO 18916 --- [rating] [Test worker] i.a.u.c.a.r.r.RatingRepositoryTest       : Starting RatingRepositoryTest using Java 21.0.2 with PID 18916 (started by nisri in C:\Users\nisri\OneDrive\Documents\University\Adpro\rating)
+2025-05-26T12:51:16.609+07:00  INFO 18916 --- [rating] [Test worker] i.a.u.c.a.r.r.RatingRepositoryTest       : No active profile set, falling back to 1 default profile: "default"
+2025-05-26T12:51:16.929+07:00  INFO 18916 --- [rating] [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-26T12:51:16.988+07:00  INFO 18916 --- [rating] [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 1 JPA repository interface.
+2025-05-26T12:51:17.040+07:00  INFO 18916 --- [rating] [Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2025-05-26T12:51:17.171+07:00  INFO 18916 --- [rating] [Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:e4ebe014-0699-4987-bd59-dc2fb954c72a;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2025-05-26T12:51:18.542+07:00  INFO 18916 --- [rating] [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-26T12:51:18.566+07:00  INFO 18916 --- [rating] [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-26T12:51:18.601+07:00  INFO 18916 --- [rating] [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-26T12:51:18.629+07:00  WARN 18916 --- [rating] [Test worker] org.hibernate.dialect.Dialect            : HHH000511: The 2.3.232 version for [org.hibernate.dialect.PostgreSQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 12.0.0. Check the community dialects project for available legacy versions.
+2025-05-26T12:51:18.630+07:00  WARN 18916 --- [rating] [Test worker] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-26T12:51:18.664+07:00  INFO 18916 --- [rating] [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory$EmbeddedDataSourceProxy@5816ac62']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-26T12:51:18.940+07:00  INFO 18916 --- [rating] [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-26T12:51:19.003+07:00  INFO 18916 --- [rating] [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-26T12:51:19.133+07:00  INFO 18916 --- [rating] [Test worker] i.a.u.c.a.r.r.RatingRepositoryTest       : Started RatingRepositoryTest in 2.617 seconds (process running for 40.813)
+2025-05-26T12:51:20.586+07:00  INFO 18916 --- [rating] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-26T12:51:20.593+07:00  INFO 18916 --- [rating] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-26T12:51:20.609+07:00  INFO 18916 --- [rating] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-26T12:51:20.614+07:00  INFO 18916 --- [rating] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-26T12:58:15.257+07:00  INFO 17164 --- [rating] [Test worker] i.a.u.c.a.rating.RatingApplicationTests  : Starting RatingApplicationTests using Java 21.0.2 with PID 17164 (started by nisri in C:\Users\nisri\OneDrive\Documents\University\Adpro\rating)
+2025-05-26T12:58:15.261+07:00  INFO 17164 --- [rating] [Test worker] i.a.u.c.a.rating.RatingApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2025-05-26T12:58:18.811+07:00  INFO 17164 --- [rating] [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-26T12:58:19.123+07:00  INFO 17164 --- [rating] [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 262 ms. Found 1 JPA repository interface.
+2025-05-26T12:58:22.543+07:00  INFO 17164 --- [rating] [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-26T12:58:22.831+07:00  INFO 17164 --- [rating] [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-26T12:58:23.000+07:00  INFO 17164 --- [rating] [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-26T12:58:24.654+07:00  INFO 17164 --- [rating] [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-26T12:58:24.810+07:00  INFO 17164 --- [rating] [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-26T12:58:25.553+07:00  INFO 17164 --- [rating] [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@42bfc11f
+2025-05-26T12:58:25.560+07:00  INFO 17164 --- [rating] [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-26T12:58:25.725+07:00  WARN 17164 --- [rating] [Test worker] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-26T12:58:25.820+07:00  INFO 17164 --- [rating] [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-26T12:58:30.731+07:00  INFO 17164 --- [rating] [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-26T12:58:30.925+07:00  INFO 17164 --- [rating] [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-26T12:58:33.472+07:00  WARN 17164 --- [rating] [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-26T12:58:36.508+07:00  INFO 17164 --- [rating] [Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoints beneath base path '/actuator'
+2025-05-26T12:58:39.252+07:00  INFO 17164 --- [rating] [Test worker] i.a.u.c.a.rating.RatingApplicationTests  : Started RatingApplicationTests in 25.412 seconds (process running for 30.458)
+2025-05-26T12:58:44.837+07:00  INFO 17164 --- [rating] [Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration id.ac.ui.cs.advprog.rating.RatingApplication for test class id.ac.ui.cs.advprog.rating.controller.RatingControllerTest
+2025-05-26T12:58:45.046+07:00  INFO 17164 --- [rating] [Test worker] i.a.u.c.a.r.c.RatingControllerTest       : Starting RatingControllerTest using Java 21.0.2 with PID 17164 (started by nisri in C:\Users\nisri\OneDrive\Documents\University\Adpro\rating)
+2025-05-26T12:58:45.046+07:00  INFO 17164 --- [rating] [Test worker] i.a.u.c.a.r.c.RatingControllerTest       : No active profile set, falling back to 1 default profile: "default"
+2025-05-26T12:58:46.600+07:00  WARN 17164 --- [rating] [Test worker] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 932efd34-f336-4698-8c8c-2312f3000962
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-05-26T12:58:46.673+07:00  INFO 17164 --- [rating] [Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-05-26T12:58:46.838+07:00  INFO 17164 --- [rating] [Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2025-05-26T12:58:46.843+07:00  INFO 17164 --- [rating] [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2025-05-26T12:58:46.846+07:00  INFO 17164 --- [rating] [Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2025-05-26T12:58:46.916+07:00  INFO 17164 --- [rating] [Test worker] i.a.u.c.a.r.c.RatingControllerTest       : Started RatingControllerTest in 2.063 seconds (process running for 38.124)
+2025-05-26T12:58:48.153+07:00  INFO 17164 --- [rating] [Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [id.ac.ui.cs.advprog.rating.repository.RatingRepositoryTest]: RatingRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-05-26T12:58:48.294+07:00  INFO 17164 --- [rating] [Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration id.ac.ui.cs.advprog.rating.RatingApplication for test class id.ac.ui.cs.advprog.rating.repository.RatingRepositoryTest
+2025-05-26T12:58:48.413+07:00  INFO 17164 --- [rating] [Test worker] i.a.u.c.a.r.r.RatingRepositoryTest       : Starting RatingRepositoryTest using Java 21.0.2 with PID 17164 (started by nisri in C:\Users\nisri\OneDrive\Documents\University\Adpro\rating)
+2025-05-26T12:58:48.415+07:00  INFO 17164 --- [rating] [Test worker] i.a.u.c.a.r.r.RatingRepositoryTest       : No active profile set, falling back to 1 default profile: "default"
+2025-05-26T12:58:48.866+07:00  INFO 17164 --- [rating] [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-26T12:58:48.971+07:00  INFO 17164 --- [rating] [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 98 ms. Found 1 JPA repository interface.
+2025-05-26T12:58:49.479+07:00  INFO 17164 --- [rating] [Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2025-05-26T12:58:49.700+07:00  INFO 17164 --- [rating] [Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:2c7aac32-0d0f-41f1-bdc1-52e4489dd104;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2025-05-26T12:58:51.736+07:00  INFO 17164 --- [rating] [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-26T12:58:51.758+07:00  INFO 17164 --- [rating] [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-26T12:58:51.901+07:00  INFO 17164 --- [rating] [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-26T12:58:51.937+07:00  WARN 17164 --- [rating] [Test worker] org.hibernate.dialect.Dialect            : HHH000511: The 2.3.232 version for [org.hibernate.dialect.PostgreSQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 12.0.0. Check the community dialects project for available legacy versions.
+2025-05-26T12:58:51.938+07:00  WARN 17164 --- [rating] [Test worker] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-26T12:58:51.991+07:00  INFO 17164 --- [rating] [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory$EmbeddedDataSourceProxy@6839e33f']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-26T12:58:52.383+07:00  INFO 17164 --- [rating] [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-26T12:58:52.458+07:00  INFO 17164 --- [rating] [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-26T12:58:52.613+07:00  INFO 17164 --- [rating] [Test worker] i.a.u.c.a.r.r.RatingRepositoryTest       : Started RatingRepositoryTest in 4.31 seconds (process running for 43.82)
+2025-05-26T12:58:54.367+07:00  INFO 17164 --- [rating] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-26T12:58:54.377+07:00  INFO 17164 --- [rating] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-26T12:58:54.399+07:00  INFO 17164 --- [rating] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-26T12:58:54.418+07:00  INFO 17164 --- [rating] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
