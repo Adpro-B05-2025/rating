@@ -1,0 +1,13 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'rating'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['host.docker.internal:8083']
+
+remote_write:
+  - url: https://prometheus-prod-XX.grafana.net/api/prom/push
+    basic_auth:
+      username: sa-1-prometheus-push
