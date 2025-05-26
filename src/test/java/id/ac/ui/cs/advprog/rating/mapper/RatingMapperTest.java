@@ -29,13 +29,16 @@ public class RatingMapperTest {
                 .comment("Very good")
                 .build();
 
-        Rating rating = RatingMapper.toEntity(request);
+        Long userId = 99L;
+
+        Rating rating = RatingMapper.toEntity(request, userId);
 
         assertThat(rating).isNotNull();
         assertThat(rating.getConsultationId()).isEqualTo(request.getConsultationId());
         assertThat(rating.getDoctorId()).isEqualTo(request.getDoctorId());
         assertThat(rating.getScore()).isEqualTo(request.getScore());
         assertThat(rating.getComment()).isEqualTo(request.getComment());
+        assertThat(rating.getUserId()).isEqualTo(userId);
         assertThat(rating.getCreatedAt()).isNotNull();
     }
 
@@ -47,6 +50,7 @@ public class RatingMapperTest {
                 .id(2L)
                 .consultationId(13L)
                 .doctorId(2L)
+                .userId(77L)
                 .score(5)
                 .comment("Excellent")
                 .createdAt(now)
@@ -58,6 +62,7 @@ public class RatingMapperTest {
         assertThat(response.getId()).isEqualTo(rating.getId());
         assertThat(response.getConsultationId()).isEqualTo(rating.getConsultationId());
         assertThat(response.getDoctorId()).isEqualTo(rating.getDoctorId());
+        assertThat(response.getUserId()).isEqualTo(rating.getUserId());
         assertThat(response.getScore()).isEqualTo(rating.getScore());
         assertThat(response.getComment()).isEqualTo(rating.getComment());
         assertThat(response.getCreatedAt()).isEqualTo(now);

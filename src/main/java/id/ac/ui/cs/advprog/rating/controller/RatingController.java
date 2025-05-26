@@ -29,22 +29,23 @@ public class RatingController {
         this.ratingService = ratingService;
     }
 
-    @PostMapping
-    public ApiResponse<RatingResponse> createRating(@RequestBody RatingRequest request) {
+    private Long getAuthenticatedUserId() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-
         if (auth == null || !auth.isAuthenticated() || auth.getPrincipal().equals("anonymousUser")) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorized: JWT token missing or invalid");
         }
+        return Long.valueOf((String) auth.getPrincipal());
+    }
 
-        String userIdString = (String) auth.getPrincipal();
-        Long userId = Long.valueOf(userIdString);
-
+    @PostMapping
+    public ApiResponse<RatingResponse> createRating(@RequestBody RatingRequest request) {
         if (request.getConsultationId() == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Consultation ID must be provided");
         }
 
-        Rating rating = RatingMapper.toEntity(request);
+        Long userId = getAuthenticatedUserId();
+
+        Rating rating = RatingMapper.toEntity(request, userId);
         rating.setUserId(userId);
 
         Rating created = ratingService.create(rating);
@@ -113,7 +114,9 @@ public class RatingController {
 
     @PutMapping("/{id}")
     public ApiResponse<RatingResponse> updateRating(@PathVariable Long id, @RequestBody RatingRequest request) {
-        Rating updatedRating = RatingMapper.toEntity(request);
+        Long userId = getAuthenticatedUserId();
+
+        Rating updatedRating = RatingMapper.toEntity(request, userId);
         Rating saved = ratingService.update(id, updatedRating);
         RatingResponse response = RatingMapper.toResponse(saved);
 

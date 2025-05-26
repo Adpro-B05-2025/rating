@@ -8,10 +8,11 @@ import java.time.LocalDateTime;
 
 public class RatingMapper {
 
-    public static Rating toEntity(RatingRequest request) {
+    public static Rating toEntity(RatingRequest request, Long userId) {
         return Rating.builder()
                 .consultationId(request.getConsultationId())
                 .doctorId(request.getDoctorId())
+                .userId(userId)
                 .score(request.getScore())
                 .comment(request.getComment())
                 .createdAt(LocalDateTime.now())
@@ -23,6 +24,7 @@ public class RatingMapper {
                 .id(rating.getId())
                 .consultationId(rating.getConsultationId())
                 .doctorId(rating.getDoctorId())
+                .userId(rating.getUserId())
                 .score(rating.getScore())
                 .comment(rating.getComment())
                 .createdAt(rating.getCreatedAt())
