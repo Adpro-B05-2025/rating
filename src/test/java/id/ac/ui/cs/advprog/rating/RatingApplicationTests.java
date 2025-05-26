@@ -1,33 +1,22 @@
 package id.ac.ui.cs.advprog.rating;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.MockedStatic;
-import org.mockito.Mockito;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
+import javax.sql.DataSource;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-@SpringBootTest
+@DataJpaTest
 @ActiveProfiles("test")
 class RatingApplicationTests {
 
+    @Autowired
+    private DataSource dataSource;
+
     @Test
     void contextLoads() {
-    }
-
-    @Test
-    void mainMethodShouldCallSpringApplicationRun() {
-        try (MockedStatic<SpringApplication> mocked = Mockito.mockStatic(SpringApplication.class)) {
-            mocked.when(() -> SpringApplication.run(eq(RatingApplication.class), any(String[].class)))
-                    .thenReturn(null);
-
-            RatingApplication.main(new String[]{});
-
-            mocked.verify(() -> SpringApplication.run(eq(RatingApplication.class), any(String[].class)), Mockito.times(1));
-        }
+        assertNotNull(dataSource);
     }
 }

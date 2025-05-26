@@ -1,47 +1,28 @@
-name: Continuous Integration (CI)
+name: Continuous Integration
 
 on:
   push:
-    branches:
-      - main
+    branches: [main, develop]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   test:
-    name: Run tests
     runs-on: ubuntu-22.04
     env:
-      SPRING_DATASOURCE_URL: ${{ secrets.SPRING_DATASOURCE_URL }}
-      SPRING_DATASOURCE_USERNAME: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
-      SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
-      PANDACARE_APP_JWTSECRET: ${{ secrets.PANDACARE_APP_JWTSECRET }}
-      PANDACARE_APP_JWTEXPIRATIONMS: ${{ secrets.PANDACARE_APP_JWTEXPIRATIONMS }}
+      SPRING_PROFILES_ACTIVE: test
+      SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb
 
     steps:
-      - name: Check out the Git repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Java toolchain
+      - name: Set up Java
         uses: actions/setup-java@v4
         with:
-          distribution: "temurin"
-          java-version: "21"
-          cache: "gradle"
+          distribution: temurin
+          java-version: 17
+          cache: gradle
 
-      - name: Add gradlew permission
-        run: chmod +x gradlew
-
-      - name: Run unit tests
-        run: ./gradlew test
-
-      - name: Generate test coverage report
-        run: ./gradlew jacocoTestReport
-
-      - name: Upload test report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-report
-          path: build/reports/tests/test/index.html
+      - run: chmod +x gradlew
+      - run: ./gradlew test --stacktrace
+      - run: ./gradlew check
