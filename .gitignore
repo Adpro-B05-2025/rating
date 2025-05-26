@@ -39,3 +39,6 @@ out/
 # Ignore log files
 *.logs
 logs/
+
+# .gitignore
+.env

@@ -13,7 +13,11 @@ jobs:
     name: Run tests
     runs-on: ubuntu-22.04
     env:
-      PASSWORD_DB: ${{ secrets.PASSWORD_DB }}
+      SPRING_DATASOURCE_URL: ${{ secrets.SPRING_DATASOURCE_URL }}
+      SPRING_DATASOURCE_USERNAME: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
+      SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
+      PANDACARE_APP_JWTSECRET: ${{ secrets.PANDACARE_APP_JWTSECRET }}
+      PANDACARE_APP_JWTEXPIRATIONMS: ${{ secrets.PANDACARE_APP_JWTEXPIRATIONMS }}
 
     steps:
       - name: Check out the Git repository
@@ -34,3 +38,10 @@ jobs:
 
       - name: Generate test coverage report
         run: ./gradlew jacocoTestReport
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report
+          path: build/reports/tests/test/index.html
