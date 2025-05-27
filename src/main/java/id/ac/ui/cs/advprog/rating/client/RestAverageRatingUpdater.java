@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 public class RestAverageRatingUpdater implements AverageRatingUpdater {
 
     private final RestTemplate restTemplate;
-    private final String authProfileBaseUrl = "http://localhost:8081/api/caregiver";
+    private final String authProfileBaseUrl = "https://www.pandacare-authprofile.com/api/caregiver";
 
     public RestAverageRatingUpdater(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
