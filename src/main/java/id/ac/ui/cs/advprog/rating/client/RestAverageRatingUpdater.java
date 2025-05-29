@@ -5,6 +5,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -18,6 +19,7 @@ public class RestAverageRatingUpdater implements AverageRatingUpdater {
         this.restTemplate = restTemplate;
     }
 
+    @Async
     @Override
     public void updateAverageRating(Long doctorId) {
         String url = authProfileBaseUrl + "/" + doctorId + "/averageRating";
