@@ -1,0 +1,558 @@
+[33mcommit bab9deccb7185002fd7929fa3e9b20e577f56f15[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Thu Jun 5 00:06:28 2025 +0700
+
+    trial cors
+
+[33mcommit 16e990ad0a43c9565d43de6e3fb6d959a059ebae[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Wed Jun 4 23:57:56 2025 +0700
+
+    trial cors
+
+[33mcommit 640b6fcc7a5eb8cc555a4e7550b6bf4ef38b8643[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Wed Jun 4 23:47:17 2025 +0700
+
+    trial cors
+
+[33mcommit 409a51975bda264f361a47b61db01237b9169f0c[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Wed Jun 4 23:29:50 2025 +0700
+
+    trial cors
+
+[33mcommit d789fdb5b5c3d3ae185a843bf1f60ea26ba3bcd3[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Wed Jun 4 22:50:27 2025 +0700
+
+    trial cors
+
+[33mcommit 00e8ea7d338d9b7ceadfe9ed2302088344bbc811[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Wed Jun 4 22:42:02 2025 +0700
+
+    trial cors
+
+[33mcommit a22bc3ec7ae93659083de999191f48359c7125b2[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Wed Jun 4 22:34:06 2025 +0700
+
+    fix cors
+
+[33mcommit 788bd779503d372e67803e6e9e1d1e14cc0f744f[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Wed Jun 4 22:16:46 2025 +0700
+
+    trial cors
+
+[33mcommit 086833a3a117b2bf9313f9846ceed757be986ebd[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Wed Jun 4 22:11:19 2025 +0700
+
+    [REFACTOR] cors trial
+
+[33mcommit 0745ea49c585a4a5e1147baa6353e53b7ab5b97e[m
+Merge: 50febf2 e17064d
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Wed Jun 4 21:08:46 2025 +0700
+
+    Merge branch 'main' of https://github.com/Adpro-B05-2025/rating
+
+[33mcommit 50febf2ce6fc195e50db1a0fdba0db78e661d1a6[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Wed Jun 4 21:08:25 2025 +0700
+
+    [REFACTOR] Fix cors
+
+[33mcommit e17064d1aac3aa3bf78069e65fb71c72629f19b9[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Wed Jun 4 20:38:16 2025 +0700
+
+    [GREEN] Fix cors
+
+[33mcommit a3633651ed5d945c1e200e27336fd523289205fb[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Wed Jun 4 20:19:24 2025 +0700
+
+    [GREEN] Fix test
+
+[33mcommit 9fcc13cdd22b62267ba8465a92b1a6a41df66d70[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Wed Jun 4 19:17:46 2025 +0700
+
+    [GREEN] Improve api
+
+[33mcommit 2b7d186575e7aa2cd2dc7c0e80c6048fd91f6946[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Thu May 29 16:29:08 2025 +0700
+
+    save
+
+[33mcommit bb245b6cbb2fb1230c1bd0007d76bbc23c4dac04[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Tue May 27 12:56:31 2025 +0700
+
+    Setting promethous monitoring
+
+[33mcommit 0c495b4bbb4f36b12de08947a313c59fa95e9411[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Tue May 27 11:29:20 2025 +0700
+
+    [REFACTOR] Turn http into https
+
+[33mcommit cfee2f4eac8715de3a1a844fcbdad3d1472151be[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Tue May 27 03:33:44 2025 +0700
+
+    [REFACTOR] Add user id to response
+
+[33mcommit ee55fbd8c5411ef92958e20b1806105bb1ede966[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Mon May 26 19:51:08 2025 +0700
+
+    CI/CD trial
+
+[33mcommit 399d3648e74d4e1cbbaed6d9933b8eb4c20e7ac9[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Mon May 26 15:19:44 2025 +0700
+
+    Change database configuration
+
+[33mcommit c99af8819d1862dc5a2f55973ac5a5c1915188a2[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Sun May 25 21:20:18 2025 +0700
+
+    [REFACTOR] Add average rating updater to service
+
+[33mcommit bcf97bc887f4554db93a061ba3dbe7c99cf33e54[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Sun May 25 21:14:00 2025 +0700
+
+    [RED] Modify service test
+
+[33mcommit 23b429e4e346346f1040ad5fd1015e506310c4cd[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Sun May 25 21:07:47 2025 +0700
+
+    [REFACTOR] Implement average rating updater
+
+[33mcommit 49a9e6a44657f25186b5fc320d218d889f43e568[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Sun May 25 20:55:32 2025 +0700
+
+    [RED] Add rest average rating updater test
+
+[33mcommit bae5120a48f87ff54e0f523c1d1b41c879da8993[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Sun May 25 20:40:22 2025 +0700
+
+    [GREEN] Implement rest template config
+
+[33mcommit 8b0469b98e717eb2bc093310c3e73f8d52f5cba7[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Sun May 25 20:27:25 2025 +0700
+
+    [RED] Add rest template config test
+
+[33mcommit f0bef9d58cfd5fe902123e7553d8c5a0119fdb6a[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Sun May 25 20:14:50 2025 +0700
+
+    [GREEN] Improve controller test
+
+[33mcommit d86ac50ae163f858cfc86856bde7fa5e890b8987[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Sun May 25 20:03:11 2025 +0700
+
+    [GREEN] Improve service test
+
+[33mcommit f4a011426983df6f3a37e35413f00e1ac852c374[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Sun May 25 19:57:54 2025 +0700
+
+    Add log files to gitignore
+
+[33mcommit d65e579223910d14665e43fa3f158742312689d6[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Sun May 25 19:50:21 2025 +0700
+
+    [GREEN] Improve jwt utils test
+
+[33mcommit 6e195229ffa08954aa2540eb6894b33bcee5414b[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Sun May 25 19:44:09 2025 +0700
+
+    [GREEN] Improve app test
+
+[33mcommit 7edf30ec4f637732ac3b539239ff981bb9839415[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Sun May 25 19:38:44 2025 +0700
+
+    [GREEN] Improve mapper test
+
+[33mcommit a03af4453f9d6768783ca9a18719e068c8346c18[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Sun May 25 19:24:22 2025 +0700
+
+    Add monitoring
+
+[33mcommit 7f80f88257869f69248d73e845173547d9665f2c[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Sun May 25 13:06:14 2025 +0700
+
+    [GREEN] Connect average rating to profile
+
+[33mcommit dc773337af58eeb8b2a58ba40ce21142fa0545f9[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Sat May 24 18:40:07 2025 +0700
+
+    [GREEN] Change consultation id and rating id data type to long
+
+[33mcommit 132e80bcffb39909f808f191d287a7de92389407[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Sat May 24 18:31:27 2025 +0700
+
+    [RED] Change consultation id and rating id data type to long in the test
+
+[33mcommit 97215374f55e332e859900945cbb7b57528439cd[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Sat May 24 17:36:00 2025 +0700
+
+    [REFACTOR] Modify controller
+
+[33mcommit fd5ada8db54bb581d980bf0dcbf5df0c2ec9cb0f[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 16 17:42:05 2025 +0700
+
+    [GREEN] Modify controller to implement jwt
+
+[33mcommit 4d7548f9d893f2d241a85c5a265d546f8f513ce6[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 16 18:20:40 2025 +0700
+
+    [RED] Modify controller test to implement jwt
+
+[33mcommit 0620fa144fee1b29b6fbf2e3ece6b5d5887565cf[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 16 17:26:33 2025 +0700
+
+    [GREEN] Modify Jwt Utils
+
+[33mcommit cb7e6f7ed28c9621dc6fcfc2744ec4f7fcbc59ff[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 16 17:12:51 2025 +0700
+
+    [RED] Modify Jwt Utils test
+
+[33mcommit 1bce01874edf4ca936ab1fbe1e5477b26866fa16[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 16 16:51:18 2025 +0700
+
+    [GREEN] Modify user id data type
+
+[33mcommit 952f3523b5ee184d2c8e0341883606e601287216[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 16 16:45:23 2025 +0700
+
+    [RED] Modify user id data type to long test
+
+[33mcommit e9416ad8a31fb0aa4eaf28838fb2a67865450712[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 16 16:38:48 2025 +0700
+
+    [GREEN] Implement config
+
+[33mcommit dcbba34188817c8aedbd7a7f8cf534ad5036777a[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 16 16:21:07 2025 +0700
+
+    [GREEN] Modify db, jwt configurations
+
+[33mcommit bdcedef871cec01e446dd995985b81173cbdd450[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 16 15:57:50 2025 +0700
+
+    [RED] Add config test
+
+[33mcommit f10bc5d303ed5eaf60dd4ddc79467cb8bdcdabd5[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 16 15:27:18 2025 +0700
+
+    [GREEN] Add Jwt dependencies
+
+[33mcommit 683f8ef1f85c15a1f6699ac4bdef99fd5770bcee[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 16 15:04:18 2025 +0700
+
+    [GREEN] Modify doctor ID data type
+
+[33mcommit d14cf191e61218a9a1ede1393a00200825dd2109[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 16 11:47:15 2025 +0700
+
+    [GREEN] Remove: user ID except from rating model
+
+[33mcommit 37456add64ea6b66a8267cd32c86383e4c0aa194[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 16 11:21:19 2025 +0700
+
+    [GREEN] Implement API response in controller
+
+[33mcommit 7c267bc44e8ddc277fc77b5bfcb56b625d91d7a2[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 16 11:10:03 2025 +0700
+
+    [GREEN] Implement API response
+
+[33mcommit 0155f852a7dc79838d9915c6174a7dcc30b54145[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 16 11:04:28 2025 +0700
+
+    [RED] Add API response test
+
+[33mcommit 2af30bc5f913103c1c5e07911f6dd1e34459da88[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 16 11:04:10 2025 +0700
+
+    [RED] Add API response test
+
+[33mcommit fb680fcaea19c3c01c326ed3cef5133a2c79c76f[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 16 10:44:37 2025 +0700
+
+    [RED] Modify controller test
+
+[33mcommit 5534c05afe7ed5823b819ad7cb4d9b55b745f8a6[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 16 10:29:35 2025 +0700
+
+    [REFACTOR] Change database
+
+[33mcommit 0512a8cba308789dd8bd2fd1b1deda5dc4ab1f23[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 16 10:11:54 2025 +0700
+
+    [GREEN] Remove strategy pattern on service
+
+[33mcommit 9e3b03aff1c36b1abe4c5fb1b37eff3339455591[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 16 09:19:10 2025 +0700
+
+    [RED] Remove strategy pattern on service test
+
+[33mcommit 9427780bdb1d6eaa9caa9398b8c9d5bb147d7a28[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Thu May 15 19:47:27 2025 +0700
+
+    build: Connect to psql
+
+[33mcommit 096d951c45381ed95f551ab5951dcdee845074b3[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 9 20:47:16 2025 +0700
+
+    build: Connect to psql
+
+[33mcommit f7b70fa63e4843c651958ca48e9613adef12e91d[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 9 20:25:35 2025 +0700
+
+    [GREEN] Fix url typo in Controller
+
+[33mcommit c617f82367c5ad46d6c86513a2e14bd6d7fbcd35[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 9 19:37:58 2025 +0700
+
+    [GREEN] Modify RatingController
+
+[33mcommit 325c8c9ffc76250708249b41367aeb71a04702f6[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 9 19:37:03 2025 +0700
+
+    [RED] Modify RatingController test
+
+[33mcommit 4c99eac7240fe952aa377d54deb8a816d428e237[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 9 19:26:15 2025 +0700
+
+    Implement RatingMapper
+
+[33mcommit 40164aec0418280f1921610b3cdd9ca028ee52d4[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 9 19:25:23 2025 +0700
+
+    [RED] Add tests for RatingMapper
+
+[33mcommit 8d3841fff58db478b3caeedcafa0afe094698152[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 9 19:21:12 2025 +0700
+
+    [GREEN] Implement RatingRequest and RatingResponse DTO classes
+
+[33mcommit 57cec9a3555c256e61398711f033b67e0c3a2fe6[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 9 19:19:46 2025 +0700
+
+    [RED] Add tests for RatingRequest and RatingResponse DTO
+
+[33mcommit 37433b2aba4f20e5d26c65bf3c6aff7f924e35b2[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 9 19:13:52 2025 +0700
+
+    [REFACTOR] Implement client and strategy
+
+[33mcommit 7854b22bebc050753da206a63a2ff3ff3cfe6ec9[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 9 19:12:10 2025 +0700
+
+    [RED] Modify RatingServiceImpl test
+
+[33mcommit a6ace92ea63bfe1f482315bdbee866f9a0c7340c[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 9 19:03:02 2025 +0700
+
+    [GREEN] Implement ConsultationServiceClient
+
+[33mcommit b451d995f7d3845ca26aa1c3538355956c7ade3e[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 9 18:42:29 2025 +0700
+
+    [RED] Add test for ConsultationServiceClient
+
+[33mcommit 20a2f8d69ab33d4f50d489b361fb667c49d9bd5f[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 9 18:37:42 2025 +0700
+
+    [GREEN] Implement RatingValidationStrategy and DefaultRatingValidation
+
+[33mcommit 812e0929470f42ea66f39cd872adcf1de211f5ba[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 9 17:50:34 2025 +0700
+
+    [RED] Add unit tests for DefaultRatingValidation
+
+[33mcommit fe388db23491412fa74299b989514d21081bb351[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 9 13:29:08 2025 +0700
+
+    Fix gradle deploy script
+
+[33mcommit 9e79687be80245ccb52a04a6c902cf53b51db5f3[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 9 13:24:26 2025 +0700
+
+    Fix gradle deploy script
+
+[33mcommit 6132b43acdb28526efdbc657968dfde57e54c3b7[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 9 13:19:41 2025 +0700
+
+    Add deploy script
+
+[33mcommit a243b67fa4332eca04ee15c54fb85ede280bdcbd[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 2 20:30:13 2025 +0700
+
+    [GREEN] Modify service
+
+[33mcommit f8369de7e9ddc28adb3139df1d43472d6d190641[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri May 2 20:28:58 2025 +0700
+
+    [RED] Modify RatingServiceImplTest to add update
+
+[33mcommit 916cb1882a21b9f9d5fc9674308898049910c183[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri Apr 11 19:21:35 2025 +0700
+
+    CD test
+
+[33mcommit 0d6f2edcec6c1a7092895c72541842235a785fbf[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri Apr 11 18:29:51 2025 +0700
+
+    Trigger CI rerun
+
+[33mcommit 5352023b874f0a2de9d6fa78a9e943d0cb987287[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri Apr 11 18:26:46 2025 +0700
+
+    ci: update github actions workflow
+
+[33mcommit 2b445afbba82cd5fc11e9f107bc16fc6e67e6a43[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri Apr 11 18:11:38 2025 +0700
+
+    feat: add RatingController
+
+[33mcommit f460c013f8c8ddd470f26257fac761a439b0832b[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri Apr 11 18:11:02 2025 +0700
+
+    test: add RatingController tests
+
+[33mcommit 4fdb5a3f3af54e0d5a4f418548c8b360dd71bcb7[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri Apr 11 18:02:49 2025 +0700
+
+    feat: add RatingService and RatingServiceImpl
+
+[33mcommit 38e25918aa36e4963530801c3bc1ff339454b904[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri Apr 11 18:00:27 2025 +0700
+
+    test: add RatingServiceImpl test
+
+[33mcommit 36b2b74b8213da438aeb96f5a398d5c32ef500ff[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri Apr 11 17:52:57 2025 +0700
+
+    feat: add RatingRepository
+
+[33mcommit 7d0122110b402c4103db0c5d1fa1b9e41b26ed78[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri Apr 11 17:51:56 2025 +0700
+
+    test: add RatingRepository tests
+
+[33mcommit d782bb4015de6cca4dc3647d3ab8b1496b9ba29c[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri Apr 11 17:31:49 2025 +0700
+
+    feat: add Rating model
+
+[33mcommit 41a2db49db95b986783c694390e9ab469a86dc7a[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri Apr 11 17:30:44 2025 +0700
+
+    test: add unit tests Rating model
+
+[33mcommit b7ee6bb45e4b986d86a49b66eda391c9bb9d71aa[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri Apr 11 16:35:39 2025 +0700
+
+    test: add application-test.yml
+
+[33mcommit 1fca514297bf6b641ce25448d8a4bb83e2b8ff7f[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri Apr 11 16:34:17 2025 +0700
+
+    chore: setup gradle with H2 DB and test dependencies
+
+[33mcommit a2f5b0ef76eca3a146b756e53a1cb1addeaf5ce8[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri Apr 11 09:37:02 2025 +0700
+
+    add ci.yml
+
+[33mcommit 41661ca08c723e747d34a6508a0cf3785b4b17a4[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Fri Apr 11 09:34:40 2025 +0700
+
+    Add jacoco for code coverage testing
+
+[33mcommit 1b3b8dd8329577bb8e5ad08ddf73b22427f68620[m
+Author: nsrnannaisha <nisrinaannaisha@gmail.com>
+Date:   Thu Apr 10 13:39:20 2025 +0700
+
+    first commit
