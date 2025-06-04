@@ -45,7 +45,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/rating/**").authenticated()
                         .anyRequest().permitAll()
                 )
-                .addFilterBefore(new CorsFilter(corsConfigurationSource()), UsernamePasswordAuthenticationFilter.class) // TAMBAH INI
+                // .addFilterBefore(new CorsFilter(corsConfigurationSource()), UsernamePasswordAuthenticationFilter.class) // TAMBAH INI
                 .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
@@ -57,10 +57,11 @@ public class SecurityConfig {
 
         System.out.println("CORS Configuration loaded");
 
-        configuration.setAllowedOrigins(Arrays.asList("https://lucent-treacle-8937a6.netlify.app"));
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
+        // Super permissive untuk testing dulu
+        configuration.setAllowedOrigins(Arrays.asList("*"));
+        configuration.setAllowedMethods(Arrays.asList("*"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
-        configuration.setAllowCredentials(true); // Sekarang bisa true karena specific origin
+        configuration.setAllowCredentials(false); // HARUS false untuk "*"
         configuration.setMaxAge(3600L);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
