@@ -17,7 +17,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@CrossOrigin(origins = {"http://localhost:3000", "https://lucent-treacle-8937a6.netlify.app"}, allowCredentials = "true", maxAge = 3600)
+@CrossOrigin(origins = {"http://localhost:3000", "https://lucent-treacle-8937a6.netlify.app", "https://www.pandacare-rating.com"}, allowCredentials = "true", maxAge = 3600)
 @RestController
 @RequestMapping("/api/rating")
 public class RatingController {
