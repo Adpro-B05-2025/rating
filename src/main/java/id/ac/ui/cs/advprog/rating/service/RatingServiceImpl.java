@@ -2,20 +2,59 @@ package id.ac.ui.cs.advprog.rating.service;
 
 import id.ac.ui.cs.advprog.rating.model.Rating;
 import id.ac.ui.cs.advprog.rating.repository.RatingRepository;
+import id.ac.ui.cs.advprog.rating.observer.RatingObserver;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.ArrayList;
 
 @Service
 public class RatingServiceImpl implements RatingService {
 
     private final RatingRepository ratingRepository;
-    private final AverageRatingUpdater averageRatingUpdater;
+    private final List<RatingObserver> observers = new ArrayList<>();
 
-    public RatingServiceImpl(RatingRepository ratingRepository, AverageRatingUpdater averageRatingUpdater) {
+    public RatingServiceImpl(RatingRepository ratingRepository) {
         this.ratingRepository = ratingRepository;
-        this.averageRatingUpdater = averageRatingUpdater;
+    }
+
+    public void addObserver(RatingObserver observer) {
+        observers.add(observer);
+    }
+
+    public void removeObserver(RatingObserver observer) {
+        observers.remove(observer);
+    }
+
+    private void notifyRatingCreated(Rating rating) {
+        observers.forEach(observer -> {
+            try {
+                observer.onRatingCreated(rating);
+            } catch (Exception e) {
+                System.err.println("Error notifying observer: " + e.getMessage());
+            }
+        });
+    }
+
+    private void notifyRatingUpdated(Rating rating) {
+        observers.forEach(observer -> {
+            try {
+                observer.onRatingUpdated(rating);
+            } catch (Exception e) {
+                System.err.println("Error notifying observer: " + e.getMessage());
+            }
+        });
+    }
+
+    private void notifyRatingDeleted(Long ratingId, Long doctorId) {
+        observers.forEach(observer -> {
+            try {
+                observer.onRatingDeleted(ratingId, doctorId);
+            } catch (Exception e) {
+                System.err.println("Error notifying observer: " + e.getMessage());
+            }
+        });
     }
 
     @Override
@@ -23,11 +62,7 @@ public class RatingServiceImpl implements RatingService {
         rating.setCreatedAt(LocalDateTime.now());
         Rating saved = ratingRepository.save(rating);
 
-        try {
-            averageRatingUpdater.updateAverageRating(saved.getDoctorId());
-        } catch (Exception e) {
-            System.err.println("Error updating average rating: " + e.getMessage());
-        }
+        notifyRatingCreated(saved);
 
         return saved;
     }
@@ -40,7 +75,11 @@ public class RatingServiceImpl implements RatingService {
         existingRating.setScore(updatedRating.getScore());
         existingRating.setComment(updatedRating.getComment());
 
-        return ratingRepository.save(existingRating);
+        Rating saved = ratingRepository.save(existingRating);
+
+        notifyRatingUpdated(saved);
+
+        return saved;
     }
 
     @Override
@@ -48,7 +87,19 @@ public class RatingServiceImpl implements RatingService {
         if (!ratingRepository.existsById(id)) {
             throw new IllegalArgumentException("Rating not found with id: " + id);
         }
+
+        Rating rating = findById(id);
         ratingRepository.deleteById(id);
+
+        notifyRatingDeleted(id, rating.getDoctorId());
+    }
+
+    public double calculateDoctorAverageRating(Long doctorId) {
+        List<Rating> ratings = findAllByDoctorId(doctorId);
+        return ratings.stream()
+                .mapToInt(Rating::getScore)
+                .average()
+                .orElse(0.0);
     }
 
     @Override
