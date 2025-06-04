@@ -29,31 +29,19 @@ public class RatingServiceImpl implements RatingService {
 
     private void notifyRatingCreated(Rating rating) {
         observers.forEach(observer -> {
-            try {
-                observer.onRatingCreated(rating);
-            } catch (Exception e) {
-                System.err.println("Error notifying observer: " + e.getMessage());
-            }
+            observer.onRatingCreated(rating);
         });
     }
 
     private void notifyRatingUpdated(Rating rating) {
         observers.forEach(observer -> {
-            try {
-                observer.onRatingUpdated(rating);
-            } catch (Exception e) {
-                System.err.println("Error notifying observer: " + e.getMessage());
-            }
+            observer.onRatingUpdated(rating);
         });
     }
 
     private void notifyRatingDeleted(Long ratingId, Long doctorId) {
         observers.forEach(observer -> {
-            try {
-                observer.onRatingDeleted(ratingId, doctorId);
-            } catch (Exception e) {
-                System.err.println("Error notifying observer: " + e.getMessage());
-            }
+            observer.onRatingDeleted(ratingId, doctorId);
         });
     }
 
