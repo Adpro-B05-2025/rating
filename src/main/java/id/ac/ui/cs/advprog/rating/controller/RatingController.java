@@ -17,7 +17,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@CrossOrigin(origins = "https://lucent-treacle-8937a6.netlify.app", allowCredentials = "true")
+// @CrossOrigin(origins = "https://lucent-treacle-8937a6.netlify.app", allowCredentials = "true")
 @RestController
 @RequestMapping("/api/rating")
 public class RatingController {
