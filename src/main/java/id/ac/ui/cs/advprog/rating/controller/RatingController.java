@@ -98,6 +98,8 @@ public class RatingController {
                 .build();
     }
 
+
+    @CrossOrigin(origins = "*")
     @GetMapping("/consultation/{consultationId}")
     public ApiResponse<RatingResponse> getRatingsByConsultationId(@PathVariable Long consultationId) {
         List<RatingResponse> ratings = ratingService.findAllByConsultationId(consultationId)

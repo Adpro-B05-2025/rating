@@ -15,6 +15,7 @@ import org.springframework.web.cors.CorsConfiguration;
 
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 import java.util.Arrays;
 
@@ -44,6 +45,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/rating/**").authenticated()
                         .anyRequest().permitAll()
                 )
+                .addFilterBefore(new CorsFilter(corsConfigurationSource()), UsernamePasswordAuthenticationFilter.class) // TAMBAH INI
                 .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
