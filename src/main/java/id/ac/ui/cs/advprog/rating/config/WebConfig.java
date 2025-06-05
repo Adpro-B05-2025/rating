@@ -10,8 +10,13 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOriginPatterns("http://localhost:3000*", "https://lucent-treacle-8937a6.netlify.app")
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedOriginPatterns(
+                        "http://localhost:3000",
+                        "http://localhost:3000/",
+                        "https://lucent-treacle-8937a6.netlify.app",
+                        "https://lucent-treacle-8937a6.netlify.app/"
+                )
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD")
                 .allowedHeaders("*")
                 .allowCredentials(true)
                 .maxAge(3600);
