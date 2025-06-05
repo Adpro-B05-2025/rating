@@ -9,23 +9,20 @@ import io.jsonwebtoken.SignatureException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.nio.charset.StandardCharsets;
 import java.security.Key;
 
 @Component
 public class JwtUtils {
 
-    private final String jwtSecret;
+    private final String jwtSecret = "pandaCareSecretKey123456789012345678901234567890";
 
-    public JwtUtils(@Value("pandaCareSecretKey123456789012345678901234567890") String jwtSecret) {
-        this.jwtSecret = jwtSecret;
+    public JwtUtils() {
         System.out.println("DEBUG: JWT secret in rating service = " + jwtSecret);
     }
 
     private Key getSigningKey() {
-        if (jwtSecret == null) {
-            throw new IllegalStateException("JWT secret key is not initialized");
-        }
-        return Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtSecret));
+        return Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
     }
 
     public String getUserIdFromJwtToken(String token) {
