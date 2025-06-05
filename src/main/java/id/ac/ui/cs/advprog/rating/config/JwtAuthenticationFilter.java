@@ -27,25 +27,39 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                                     HttpServletResponse response,
                                     FilterChain filterChain)
             throws ServletException, IOException {
+
+        System.out.println("[REQUEST] " + request.getMethod() + " " + request.getRequestURI() +
+                ", Origin: " + request.getHeader("Origin") +
+                ", Authorization: " + request.getHeader("Authorization"));
+
+
+        System.out.println("[DEBUG] Request Method: " + request.getMethod() + ", URI: " + request.getRequestURI());
+
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+            System.out.println("[DEBUG] OPTIONS request - skipping JWT filter");
             filterChain.doFilter(request, response);
             return;
         }
 
         String jwt = parseJwt(request);
+        System.out.println("[DEBUG] JWT token extracted: " + jwt);
 
         if (jwt != null && jwtUtils.validateJwtToken(jwt)) {
             String userId = jwtUtils.getUserIdFromJwtToken(jwt);
+            System.out.println("[DEBUG] JWT valid for userId: " + userId);
 
             UsernamePasswordAuthenticationToken authentication =
                     new UsernamePasswordAuthenticationToken(userId, null, Collections.emptyList());
             authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
             SecurityContextHolder.getContext().setAuthentication(authentication);
+        } else {
+            System.out.println("[DEBUG] JWT is invalid or not present");
         }
 
         filterChain.doFilter(request, response);
     }
+
 
     private String parseJwt(HttpServletRequest request) {
         String headerAuth = request.getHeader("Authorization");
