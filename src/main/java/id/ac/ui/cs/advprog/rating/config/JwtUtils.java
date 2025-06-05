@@ -16,7 +16,7 @@ public class JwtUtils {
 
     private final String jwtSecret;
 
-    public JwtUtils(@Value("${pandacare.app.jwtSecret}") String jwtSecret) {
+    public JwtUtils(@Value("pandaCareSecretKey123456789012345678901234567890") String jwtSecret) {
         this.jwtSecret = jwtSecret;
         System.out.println("DEBUG: JWT secret in rating service = " + jwtSecret);
     }
