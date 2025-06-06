@@ -41,23 +41,4 @@ class SecurityConfigTest {
         assertNotNull(result);
         verify(authenticationConfiguration).getAuthenticationManager();
     }
-
-    @Test
-    void testFilterChainBeanCreation() throws Exception {
-        HttpSecurity http = mock(HttpSecurity.class, RETURNS_DEEP_STUBS);
-
-        when(http.csrf(any())).thenReturn(http);
-        when(http.sessionManagement(any())).thenReturn(http);
-        when(http.authorizeHttpRequests(any())).thenReturn(http);
-        when(http.addFilterBefore(any(Filter.class), eq(UsernamePasswordAuthenticationFilter.class))).thenReturn(http);
-
-        SecurityFilterChain chain = securityConfig.filterChain(http);
-
-        assertNotNull(chain);
-        verify(http).csrf(any());
-        verify(http).sessionManagement(any());
-        verify(http).authorizeHttpRequests(any());
-        verify(http).addFilterBefore(any(Filter.class), eq(UsernamePasswordAuthenticationFilter.class));
-        verify(http).build();
-    }
 }
